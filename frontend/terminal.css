@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+@font-face{
+    font-family: 'CascadiaCode';
+    src: url('./fonts/CascadiaCode.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Menlo';
+    src: url('./fonts/Menlo.ttf') format('truetype');
+}
+
+:root {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    overflow: hidden;
+}
+
+button, select {
+    outline: none;
+    border-radius: 0;
+    border: 0;
+}
+
+/* Buttons */
+.buttons {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    z-index: 100;
+}
+
+.buttons span {
+    width: 35px;
+    height: 35px;
+    border-radius: 100vw;
+    cursor: pointer;
+    text-align: center;
+    line-height: 35px;
+    color: rgba(255, 255, 255, 0.2);
+    user-select: none;
+}
+
+.buttons span:hover, .buttons .selected {
+    color: rgb(255, 255, 255, 0.7);
+}
+
+/* Loader */
+#loader {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 105;
+    display: flex;
+    justify-content: center;
+}
+
+#loader img {
+    width: 50px;
+}
+
+/* Terminal */
+#terminal-section {
+    margin: 10px;
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+}
+
+.xterm-viewport::-webkit-scrollbar {
+    width: 5px;
+}
+
+.xterm-viewport::-webkit-scrollbar-thumb {
+    background: rgb(200, 200, 200);
+    border-radius: 4px;
+}
+
+/* Settings */
+#settings {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    z-index: 101;
+    padding: 10px;
+    display: none;
+}

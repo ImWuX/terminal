@@ -1,0 +1,14 @@
+[Unit]
+Description=terminal
+After=nginx.service
+
+[Service]
+Type=simple
+User=<user here>
+Group=<user here>
+Environment=TERMINAL_PORT=<port here>
+ExecStart=/bin/node <full path to the built index.js>
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

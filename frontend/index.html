@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Terminal</title>
+        <link rel="icon" type="image/x-icon" href="https://host.imwux.me/favicon.ico">
+
+        <link rel="stylesheet" href="terminal.css" />
+        <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="node_modules/xterm/lib/xterm.js"></script>
+        <script src="terminal.js" type="module"></script>
+    </head>
+    <body>
+        <div id="loader"><img src="load.svg" /></div>
+        <div id="terminal-section"></div>
+        <div class="buttons">
+            <span id="session1-button" class="material-icons-outlined">looks_one</span>
+            <span id="session2-button" class="material-icons-outlined">looks_two</span>
+            <span id="session3-button" class="material-icons-outlined">looks_3</span>
+            <span id="refresh-button" class="material-icons-outlined">refresh</span>
+            <span id="settings-button" class="material-icons-outlined">settings</span>
+        </div>
+        <div id="settings">
+            <select id="theme-select">
+                <option selected="selected">Select Theme</option>
+            </select>
+            <button id="close-settings">Close</button>
+        </div>
+    </body>
+</html>
