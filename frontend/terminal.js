@@ -13,7 +13,8 @@ $(document).ready(() => {
         fontWeight: "normal",
         fontSize: 15,
         bellStyle: "sound",
-        allowTransparency: true
+        allowTransparency: true,
+        tabStopWidth: 4
     });
     terminal.open($("#terminal-section").get(0));
 
@@ -35,8 +36,6 @@ $(document).ready(() => {
         terminal.resize(1, 1);
         refreshTerminalSize();
     });
-
-    socket.on("switch", () => refreshTerminalSize());
 
     socket.on("out", (data) => terminal.write(data));
 
@@ -83,19 +82,4 @@ $(document).ready(() => {
     Object.keys(themes).forEach((theme, i) => {
         $("#theme-select").append(`<option value="${i}">${theme}</option>`)
     });
-
-    for(let i = 1; i <= 3; i++) {
-        $(`#session${i}-button`).click(() => {
-            terminal.clear();
-            if(session > 0) $(`#session${session}-button`).removeClass("selected");
-            if(session == i) {
-                socket.emit("dynamic");
-                session = 0;
-            } else {
-                socket.emit("static", i - 1);
-                $(`#session${i}-button`).addClass("selected");
-                session = i;
-            }
-        });
-    }
 });
