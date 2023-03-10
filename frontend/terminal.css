@@ -17,6 +17,8 @@
 body {
     background-color: black;
     overflow: hidden;
+    background-position: center;
+    background-size: cover;
 }
 
 button, select {

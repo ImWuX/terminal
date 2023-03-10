@@ -1,4 +1,14 @@
 export default {
+    "city": {
+        "image": "https://host.thenest.dev/images/city.jpg",
+        "imageDarken": 0.6,
+        "extends": "hyper"
+    },
+    "forest": {
+        "image": "https://host.thenest.dev/images/forest.jpg",
+        "imageDarken": 0.5,
+        "extends": "hyper"
+    },
     "hyper": {
         "foreground": "#fff",
         "background": "#000",

@@ -65,10 +65,23 @@ $(document).ready(() => {
 
     const setTheme = (index) => {
         if(!index) return;
-        let settings = { theme: index };
+        const settings = { theme: index };
         socket.emit("settings", settings);
+
         let theme = Object.values(themes)[index];
-        $("body").css("background-color", theme.background);
+        if(theme.extends) {
+            const extendedTheme = themes[theme.extends];
+            for(const [key, value] of Object.entries(extendedTheme)) {
+                if(!theme[key]) theme[key] = value;
+            }
+        }
+        if(theme.image) {
+            theme.background = "transparent";
+            $("body").css("background", `linear-gradient(rgba(0, 0, 0, ${theme.imageDarken ? theme.imageDarken : 0}), rgba(0, 0, 0, ${theme.imageDarken ? theme.imageDarken : 0})), url(${theme.image})`);
+        } else {
+            $("body").css("background", "");
+            $("body").css("background-color", theme.background);
+        }
         terminal.setOption("theme", theme);
         $("#theme-select").val(index);
     }
