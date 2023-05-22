@@ -4,12 +4,35 @@ import themes from "./themes.js";
 
 $(document).ready(() => {
     const socket = io();
+
+    window.addEventListener('dragover', (e) => {
+        e.preventDefault()
+    });
+
+    window.addEventListener("drop", (e) => {
+        let files = e.dataTransfer.files;
+        e.preventDefault();
+
+        socket.emit("upload", (secret) => {
+            let formData = new FormData()
+            for(let file of files) {
+                console.log(file.name);
+                formData.append(`file_${file.name}`, file);
+            }
+            fetch(`/upload/${secret}`, {
+                method: 'POST',
+                body: formData
+            });
+        });
+
+    });
+
     let session = 0;
 
     let terminal = new Terminal({
         cursorStyle: "bar",
         cursorBlink: true,
-        fontFamily: "Menlo",
+        fontFamily: "FiraCode",
         fontWeight: "normal",
         fontSize: 15,
         bellStyle: "sound",

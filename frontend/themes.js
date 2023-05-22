@@ -9,6 +9,11 @@ export default {
         "imageDarken": 0.5,
         "extends": "hyper"
     },
+    "forest2": {
+        "image": "https://host.thenest.dev/images/forest2.jpg",
+        "imageDarken": 0.6,
+        "extends": "hyper"
+    },
     "hyper": {
         "foreground": "#fff",
         "background": "#000",
